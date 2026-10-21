@@ -1,0 +1,95 @@
+.bannerWrapper {
+  width: 100%;
+  position: fixed;
+  top: 95px; /* Restored EXACTLY to the old beloved position! */
+  left: 0;
+  z-index: 110; /* Lower than navbar so dropdown works */
+  animation: slideDown 0.4s ease-out forwards;
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  background-color: #134074;
+  color: #ffffff;
+  padding: 18px 24px;
+  text-align: center;
+  position: relative;
+  width: 99%; /* Restored original full width */
+  border-radius: 10px;
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border-top: 1px solid rgba(255,255,255,0.4); /* Highlight top edge */
+  border-bottom: 1px solid rgba(255,255,255,0.24);
+}
+
+:global([data-theme='dark']) .banner {
+  background-color: #00acc1; /* Cyan in Dark Mode */
+  color: #ffffff;
+}
+
+:global([data-theme='dark']) .banner .title,
+:global([data-theme='dark']) .banner .subtitle {
+  color: #ffffff;
+}
+
+.title {
+  font-family: 'Alexandria', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color: #ffffff; /* Explicitly override global h3 color */
+}
+
+.subtitle {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.closeBtn {
+  position: absolute;
+  left: 16px;
+  top: 8px; /* Top left as requested */
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+:global([data-theme='dark']) .closeBtn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+:global([data-theme='dark']) .closeBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,189 @@
+.forecastPanel {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.forecastHeading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.headingIcon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--secondary) 11%, var(--bg-card));
+  color: var(--secondary);
+}
+
+.headingCopy {
+  min-width: 0;
+}
+
+.eyebrow {
+  color: var(--secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.headingCopy h3 {
+  margin-top: 3px;
+  color: var(--text-dark);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.headingCopy p {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.fieldLabel {
+  color: var(--text-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.fieldHint {
+  margin-right: 4px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.field input,
+.totalHours {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text-dark);
+  font: inherit;
+  font-size: 0.92rem;
+}
+
+.field input:focus {
+  border-color: var(--secondary);
+  outline: 0;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary) 13%, transparent);
+}
+
+.totalHours {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: color-mix(in srgb, var(--secondary) 6%, var(--bg-card));
+}
+
+.totalHours strong {
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
+.totalHours span {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+
+.resultLabel {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.resultValue {
+  color: var(--text-dark);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.resultUnit {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.resultPrimary {
+  background: color-mix(in srgb, var(--secondary) 8%, var(--bg-card));
+}
+
+.resultPrimary .resultValue {
+  color: var(--secondary);
+}
+
+.note {
+  margin: 16px 0 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .fieldGrid,
+  .results {
+    grid-template-columns: 1fr;
+  }
+
+  .result {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 560px) {
+  .forecastPanel {
+    padding: 17px;
+  }
+
+  .headingCopy p {
+    font-size: 0.74rem;
+  }
+}

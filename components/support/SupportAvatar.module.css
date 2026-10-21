@@ -1,0 +1,23 @@
+.avatar {
+  position: relative;
+  display: inline-grid;
+  width: var(--support-avatar-size);
+  height: var(--support-avatar-size);
+  flex: 0 0 var(--support-avatar-size);
+  place-items: center;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d8e7f2;
+  border-radius: 13px;
+  box-shadow: 0 2px 6px rgba(18, 54, 79, .12);
+}
+
+.avatar > img {
+  object-fit: contain;
+}
+
+:global([data-theme='dark']) .avatar {
+  background: #fff;
+  border-color: #d8e7f2;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .18);
+}

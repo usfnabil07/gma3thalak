@@ -1,0 +1,1162 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=Almarai:wght@300;400;700;800&display=swap');
+
+/* SweetAlert Dark Mode Fixes */
+.dark-swal-popup,
+[data-theme='dark'] .swal2-popup {
+  background: #0f1520 !important;
+  color: #e6edf3 !important;
+  border: 1px solid #1e2d40 !important;
+}
+
+.dark-swal-title,
+[data-theme='dark'] .swal2-title {
+  color: #e6edf3 !important;
+}
+
+.dark-swal-html,
+[data-theme='dark'] .swal2-html-container {
+  color: #8b949e !important;
+}
+
+.dark-swal-input,
+[data-theme='dark'] .swal2-input,
+[data-theme='dark'] .swal2-textarea,
+[data-theme='dark'] .swal2-select {
+  background: #080c14 !important;
+  color: #e6edf3 !important;
+  border-color: #1e2d40 !important;
+}
+
+.dark-swal-label,
+[data-theme='dark'] .swal2-inputLabel {
+  color: #8b949e !important;
+}
+
+[data-theme='dark'] .swal2-close {
+  color: #8b949e !important;
+}
+
+[data-theme='dark'] .swal2-close:hover {
+  color: #e6edf3 !important;
+}
+
+[data-theme='dark'] .swal2-cancel {
+  background: transparent !important;
+  color: #e6edf3 !important;
+  border: 1px solid #1e2d40 !important;
+}
+
+[data-theme='dark'] .swal2-cancel:hover {
+  background: #1e2d40 !important;
+}
+
+/* SweetAlert2 — tablet width fix (Galaxy Tab / iPad mini) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .swal2-popup {
+    width: auto !important;
+    max-width: 420px !important;
+  }
+  .swal2-container {
+    padding: 0 16px !important;
+  }
+}
+
+/* ===========================
+   Design Tokens — El-Gohary Style
+   =========================== */
+:root {
+  /* Primary — BUA Navy Blue (From Screenshot) */
+  --primary: #0f3863;
+  --primary-dark: #08213e;
+  --primary-light: #1d5b99;
+  --primary-50: #f0f5fa;
+  --primary-100: #d6e6f5;
+  --primary-200: #abcdec;
+
+  /* Secondary */
+  --secondary: #0ea5e9;
+  --secondary-light: #38bdf8;
+  --secondary-50: #f0f9ff;
+
+  /* Neutral backgrounds */
+  --bg: #f8fafc;
+  --bg-white: #ffffff;
+  --bg-section: #f1f5f9;
+  --bg-card: #ffffff;
+
+  /* Text */
+  --text-dark: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+
+  /* Borders */
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.10);
+  --shadow-card: 0 2px 20px rgba(15, 56, 99, 0.08);
+  --shadow-card-hover: 0 12px 40px rgba(15, 56, 99, 0.18);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #080c14;
+  /* Deep dark navy — matches the reference */
+  --bg-white: #080c14;
+  --bg-section: #080c14;
+  --bg-card: #0f1520;
+  /* Slightly lighter for cards */
+
+  --text-dark: #e6edf3;
+  --text-body: #c9d1d9;
+  --text-muted: #8b949e;
+  --text-faint: #6e7681;
+
+  --border: #1e2d40;
+  /* Subtle border matching the dark navy */
+  --border-strong: #1e2d40;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+:root {
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #0f3863 0%, #08213e 100%);
+  --grad-warm: linear-gradient(135deg, #0f3863 0%, #38bdf8 100%);
+  --grad-rose-cyan: linear-gradient(135deg, #0f3863 0%, #0ea5e9 100%);
+  --grad-hero: linear-gradient(160deg, #f0f5fa 0%, #f8fafc 50%, #f0f9ff 100%);
+  --grad-btn: linear-gradient(135deg, #1d5b99 0%, #0f3863 60%, #08213e 100%);
+
+  /* Fonts */
+  --font: 'Alexandria', 'Tajawal', sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 0.15s;
+  --t-normal: 0.25s;
+  --t-slow: 0.4s;
+}
+
+
+/* ===========================
+   Reset
+   =========================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-body);
+  direction: rtl;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ===========================
+   Scrollbar
+   =========================== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-section);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 3px;
+}
+
+/* ===========================
+   Typography
+   =========================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 24px;
+  border-radius: 12px;
+  /* Rectangular with rounded corners like screenshot */
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font);
+  border: none;
+  cursor: pointer;
+  transition: all var(--t-normal) var(--ease);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+
+.btn-primary {
+  background: var(--secondary);
+  /* Cyan — matches navbar register button */
+  color: #fff;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  padding: 6px 24px;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--secondary);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+[data-theme='dark'] .btn-primary:hover {
+  background: transparent;
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-dark);
+  border: 2px solid var(--text-dark);
+  border-radius: 12px;
+  padding: 6px 24px;
+}
+
+.btn-outline:hover {
+  background: var(--text-dark);
+  color: var(--bg-white);
+}
+
+[data-theme='dark'] .btn-outline {
+  color: #fff;
+  border-color: #fff;
+}
+
+[data-theme='dark'] .btn-outline:hover {
+  background: #fff;
+  color: var(--primary-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 8px 16px;
+}
+
+.btn-ghost:hover {
+  background: var(--bg-section);
+  color: var(--text-dark);
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-white:hover {
+  background: var(--primary-50);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-sm {
+  padding: 8px 20px;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 14px 36px;
+  font-size: 1.05rem;
+}
+
+.btn-xl {
+  padding: 16px 44px;
+  font-size: 1.1rem;
+}
+
+/* ===========================
+   Cards — rounded-3xl with soft shadows
+   =========================== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--t-normal) var(--ease);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--primary-200);
+  transform: translateY(-5px);
+}
+
+/* Glow on hover like El-Gohary */
+.card-glow:hover {
+  box-shadow: 0 12px 40px rgba(244, 63, 94, 0.15), 0 0 0 1px rgba(244, 63, 94, 0.1);
+}
+
+/* ===========================
+   Inputs
+   =========================== */
+.input {
+  width: 100%;
+  background: var(--bg-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  color: var(--text-dark);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  transition: all var(--t-fast) var(--ease);
+  outline: none;
+  direction: rtl;
+}
+
+.input:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.16);
+}
+
+.input::placeholder {
+  color: var(--text-faint);
+}
+
+select.input {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 14px center;
+  padding-left: 40px;
+}
+
+select.input option {
+  background: var(--bg-card);
+  color: var(--text-dark);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.input-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-body);
+}
+
+/* ===========================
+   Badge
+   =========================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.badge-primary {
+  background: var(--primary-100);
+  color: var(--primary-dark);
+  border: 1px solid var(--primary-200);
+}
+
+.badge-success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-info {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+/* ===========================
+   Layout Helpers
+   =========================== */
+.container {
+  width: 100%;
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 52px 0;
+  }
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 28px 0;
+}
+
+/* ===========================
+   Animations
+   =========================== */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 14px rgba(244, 63, 94, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.5s ease forwards;
+}
+
+.fade-in {
+  animation: fade-in 0.4s ease forwards;
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.siteLoader {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.siteLoaderAnimation {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.siteLoaderAnimation>div {
+  width: 100%;
+  height: 100%;
+}
+
+.inlineLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.inlineLoaderSpinner {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: 2px solid color-mix(in srgb, var(--secondary) 24%, transparent);
+  border-top-color: var(--secondary);
+  border-radius: 50%;
+  animation: inline-loader-spin 0.75s linear infinite;
+}
+
+@keyframes inline-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .siteLoader {
+    animation: none;
+  }
+
+  .inlineLoaderSpinner {
+    animation-duration: 2.5s;
+  }
+}
+
+/* ===========================
+   SweetAlert2 — Custom Clean Theme
+   =========================== */
+.swal2-popup {
+  font-family: var(--font) !important;
+  border-radius: 8px !important;
+  direction: rtl !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+  width: 80% !important;
+  max-width: 600px !important;
+  padding: 24px !important;
+  background: var(--bg-card) !important;
+}
+
+.swal2-title {
+  font-family: var(--font) !important;
+  color: var(--text-dark) !important;
+  font-size: 1.4rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 16px !important;
+}
+
+.swal2-html-container {
+  font-family: var(--font) !important;
+  color: var(--text-body) !important;
+  text-align: center !important;
+  direction: rtl !important;
+  line-height: 1.8em !important;
+  font-size: 1rem !important;
+  margin: 0 !important;
+}
+
+.swal2-actions {
+  margin-top: 24px !important;
+}
+
+.swal2-confirm {
+  background: #3b82f6 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-family: var(--font) !important;
+  font-weight: 700 !important;
+  padding: 12px 32px !important;
+  box-shadow: none !important;
+  font-size: 1rem !important;
+  transition: all 0.2s !important;
+}
+
+.swal2-confirm:hover {
+  background: #2563eb !important;
+}
+
+.swal2-cancel {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  font-family: var(--font) !important;
+  padding: 12px 32px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+.swal2-cancel:hover {
+  background: var(--bg-section) !important;
+}
+
+.swal2-backdrop-show {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+html.swal2-shown,
+body.swal2-shown {
+  overflow: auto !important;
+  overflow-y: auto !important;
+  padding-right: 0 !important;
+}
+
+/* ===========================
+   Section Title Component
+   =========================== */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 18px;
+  background: var(--primary-100);
+  border: 1px solid var(--primary-200);
+  border-radius: var(--radius-full);
+  color: var(--primary-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+
+.section-title span {
+  color: var(--primary);
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.85;
+}
+
+/* Fix for native select dropdowns in dark mode */
+[data-theme='dark'] select,
+[data-theme='dark'] select.input,
+[data-theme='dark'] option {
+  color-scheme: dark !important;
+  background-color: #161b22 !important;
+  color: #e6edf3 !important;
+}
+
+/* ==================================================
+   SweetAlert2 Custom Styling (Matches Website)
+   ================================================== */
+
+.swal2-popup {
+  font-family: inherit !important;
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid color-mix(in srgb, var(--secondary-light) 62%, var(--border)) !important;
+}
+
+[data-theme='dark'] .swal2-popup {
+  background: #17232e !important;
+  color: #e4edf4 !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .32) !important;
+  border-color: #3f758e !important;
+}
+
+[data-theme='dark'] .swal2-popup.swal2-toast {
+  background: #17232e !important;
+  color: #e4edf4 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .28) !important;
+  border: 1px solid #3f758e !important;
+}
+
+[data-theme='dark'] .swal2-popup.swal2-toast .swal2-title {
+  color: #e4edf4 !important;
+}
+
+[data-theme='dark'] .swal2-popup.swal2-toast .swal2-html-container {
+  color: #b8c8d4 !important;
+}
+
+[data-theme='dark'] .swal2-title {
+  color: #e4edf4 !important;
+}
+
+[data-theme='dark'] .swal2-html-container {
+  color: #b8c8d4 !important;
+}
+
+.swal2-title {
+  color: var(--text-dark) !important;
+  font-family: 'Alexandria', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.swal2-html-container {
+  color: var(--text-muted) !important;
+}
+
+/* Base button override */
+.swal2-actions .swal2-styled {
+  font-family: inherit !important;
+  border-radius: 6px !important;
+  /* Less rounded */
+  padding: 10px 24px !important;
+  font-weight: 600 !important;
+  transition: all var(--t-normal) var(--ease) !important;
+  margin: 0 8px !important;
+}
+
+/* Confirm Button — site's secondary cyan, darkens on hover */
+.swal2-actions .swal2-confirm {
+  background: var(--secondary) !important;
+  color: #fff !important;
+  border: 2px solid var(--secondary) !important;
+  box-shadow: none !important;
+  --swal2-action-button-focus-box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.5) !important;
+}
+
+.swal2-actions .swal2-confirm:hover {
+  background: #0284c7 !important;
+  /* Slightly darker cyan on hover */
+  border-color: #0284c7 !important;
+  color: #fff !important;
+}
+
+.swal2-actions .swal2-confirm:active {
+  transform: scale(0.98) !important;
+}
+
+[data-theme='dark'] .swal2-actions .swal2-confirm {
+  background: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  color: #fff !important;
+}
+
+[data-theme='dark'] .swal2-actions .swal2-confirm:hover {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #fff !important;
+}
+
+/* Cancel Button */
+.swal2-actions .swal2-cancel {
+  background: transparent !important;
+  color: #334155 !important;
+  border: 2px solid #334155 !important;
+  box-shadow: none !important;
+}
+
+.swal2-actions .swal2-cancel:hover {
+  background: #334155 !important;
+  color: #fff !important;
+}
+
+[data-theme='dark'] .swal2-actions .swal2-cancel {
+  color: #d4e0e9 !important;
+  border-color: #536b7b !important;
+}
+
+[data-theme='dark'] .swal2-actions .swal2-cancel:hover {
+  background: #334b5b !important;
+  color: #fff !important;
+}
+
+/* Deny Button (Like Danger) */
+.swal2-actions .swal2-deny {
+  background: var(--danger) !important;
+  color: #fff !important;
+  border: 2px solid var(--danger) !important;
+}
+
+.swal2-actions .swal2-deny:hover {
+  background: transparent !important;
+  color: var(--danger) !important;
+}
+
+/* ==================================================
+   SweetAlert2 Mobile Responsiveness
+   ================================================== */
+@media (max-width: 768px) {
+  .swal2-container {
+    padding: 12px !important;
+    /* Controls the exact space on the screen edges */
+  }
+
+  .swal2-popup {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1em !important;
+    /* Reduced vertical padding to make it less tall */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .swal2-title {
+    font-size: 1.4rem !important;
+  }
+
+  .swal2-actions {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  .swal2-actions .swal2-styled {
+    width: auto !important;
+    margin: 0 !important;
+  }
+}
+
+/* Fix placeholder color in light mode */
+::placeholder {
+  color: #9ca3af !important;
+  /* slate-400 */
+  opacity: 1;
+}
+
+[data-theme='dark'] ::placeholder {
+  color: #6b7280 !important;
+  /* gray-500 */
+}
+
+/* Hide number input spinners globally */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Keep SweetAlert surfaces and form controls on the same dark palette. */
+[data-theme='dark'] .swal2-popup {
+  color: #e4edf4 !important;
+  background: #17232e !important;
+  border-color: #3f758e !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .32) !important;
+}
+
+[data-theme='dark'] .swal2-title,
+[data-theme='dark'] .swal2-html-container,
+[data-theme='dark'] .swal2-validation-message,
+[data-theme='dark'] .swal2-container label {
+  color: #d4e0e9 !important;
+}
+
+[data-theme='dark'] .swal2-input,
+[data-theme='dark'] .swal2-textarea,
+[data-theme='dark'] .swal2-select {
+  color-scheme: dark !important;
+  color: #e4edf4 !important;
+  background: #101922 !important;
+  border: 1px solid #394f60 !important;
+  box-shadow: none !important;
+}
+
+[data-theme='dark'] .swal2-input:focus,
+[data-theme='dark'] .swal2-textarea:focus,
+[data-theme='dark'] .swal2-select:focus {
+  border-color: #55a9cf !important;
+  box-shadow: 0 0 0 2px rgba(85, 169, 207, .18) !important;
+}
+
+[data-theme='dark'] .swal2-cancel {
+  color: #d4e0e9 !important;
+  border-color: #536b7b !important;
+}
+
+[data-theme='dark'] .swal2-input:disabled,
+[data-theme='dark'] .swal2-select:disabled {
+  opacity: 1 !important;
+  color: #9aaeba !important;
+  background: #1a2732 !important;
+  border-color: #354957 !important;
+}
+
+.swal2-backdrop-show {
+  background: rgba(5, 12, 18, .56) !important;
+}
+
+/* SweetAlert stays on the light palette, independent of the site theme. */
+.swal2-container .swal2-popup {
+  color-scheme: light !important;
+  color: #172b3f !important;
+  background: #fff !important;
+  border-color: #bed7e7 !important;
+  box-shadow: 0 16px 40px rgba(15, 56, 99, .16) !important;
+}
+
+.swal2-container .swal2-popup .swal2-title {
+  color: #123b5c !important;
+}
+
+.swal2-container .swal2-popup .swal2-html-container,
+.swal2-container .swal2-popup .swal2-validation-message,
+.swal2-container .swal2-popup label,
+.swal2-container .swal2-popup .swal2-inputLabel {
+  color: #526c80 !important;
+}
+
+.swal2-container .swal2-popup .swal2-input,
+.swal2-container .swal2-popup .swal2-textarea,
+.swal2-container .swal2-popup .swal2-select {
+  color-scheme: light !important;
+  color: #172b3f !important;
+  background: #fff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: none !important;
+}
+
+.swal2-container .swal2-popup .swal2-input:focus,
+.swal2-container .swal2-popup .swal2-textarea:focus,
+.swal2-container .swal2-popup .swal2-select:focus {
+  border-color: #0ea5e9 !important;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, .16) !important;
+}
+
+.swal2-container .swal2-popup .swal2-select option {
+  color: #172b3f !important;
+  background: #fff !important;
+}
+
+.swal2-container .swal2-popup select.swal2-input option {
+  color: #172b3f !important;
+  background-color: #fff !important;
+}
+
+.swal2-container .swal2-popup select option {
+  color-scheme: light !important;
+  color: #172b3f !important;
+  background-color: #fff !important;
+}
+
+.swal2-container .swal2-popup select.swal2-input:disabled,
+.swal2-container .swal2-popup select.swal2-input.announcement-target-disabled {
+  color: #8294a3 !important;
+  background-color: #e8eef3 !important;
+  border-color: #d4dee6 !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+}
+
+.swal2-container .swal2-popup .swal2-cancel {
+  color: #334155 !important;
+  background: #fff !important;
+  border-color: #cbd5e1 !important;
+}
+
+.swal2-container .swal2-popup .swal2-cancel:hover {
+  color: #1e293b !important;
+  background: #f1f5f9 !important;
+}
+
+.swal2-container .swal2-popup .swal2-close {
+  color: #64748b !important;
+}
+
+.swal2-container .swal2-popup .swal2-close:hover {
+  color: #0f3863 !important;
+}
+
+.gradesAssessmentPopup .swal2-html-container {
+  margin: .35em .5em 0 !important;
+}
+
+.gradesAssessmentFields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #172b3f;
+  text-align: right;
+}
+
+.gradesAssessmentFields > label,
+.gradesAssessmentScoreGrid label {
+  margin-top: 3px;
+  color: #334e68;
+  font-size: .82rem;
+  font-weight: 800;
+}
+
+.gradesAssessmentPopup .gradesAssessmentFields .swal2-input,
+.gradesAssessmentPopup .gradesAssessmentFields .swal2-select {
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #cbddea;
+  border-radius: 11px;
+  font-family: inherit;
+  font-size: .9rem;
+}
+
+.gradesAssessmentScoreGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 3px;
+}
+
+.gradesAssessmentScoreGrid > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gradesAssessmentFields > p {
+  margin: 3px 0 0;
+  color: #647b8f;
+  font-size: .76rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 420px) {
+  .gradesAssessmentScoreGrid { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* Keep selected account and copy notices on the daytime palette in either theme. */
+[data-theme='dark'] .swal2-popup.alwaysLightAlert {
+  color: #172b3f !important;
+  background: #fff !important;
+  border-color: #bed7e7 !important;
+  box-shadow: 0 16px 40px rgba(15, 56, 99, .16) !important;
+}
+
+[data-theme='dark'] .swal2-popup.alwaysLightAlert .swal2-title {
+  color: #123b5c !important;
+}
+
+[data-theme='dark'] .swal2-popup.alwaysLightAlert .swal2-html-container {
+  color: #526c80 !important;
+}
+
+[data-theme='dark'] .swal2-popup.alwaysLightAlert .swal2-cancel {
+  color: #334155 !important;
+  background: #fff !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme='dark'] .swal2-popup.alwaysLightAlert .swal2-cancel:hover {
+  background: #f1f5f9 !important;
+}

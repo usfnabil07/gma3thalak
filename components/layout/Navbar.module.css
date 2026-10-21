@@ -1,0 +1,697 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 120;
+  /* NO transition on background-color: it turns solid instantly so the hero section never shows through on fast scrolls */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.navbarTop {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.navbarScrolled {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+[data-theme='dark'] .navbarTop {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .navbarScrolled {
+  background: #080c14;
+  border-bottom: 1px solid #1e2d40;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Logo (Right) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* Left Side: Theme & Logo */
+.leftSide {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* On Desktop, make the spacer push auth to the right, and leftSide + logo to the left */
+/* Since it's RTL, flex order naturally goes Right to Left */
+.authArea {
+  order: 1;
+}
+
+.spacer {
+  order: 2;
+  flex: 1;
+}
+
+.leftSide {
+  order: 3;
+}
+
+.logo {
+  order: 4;
+  margin-right: 24px;
+}
+
+/* New Image Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.buaLogoImg {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--t-fast);
+}
+
+/* Removed the [data-theme='dark'] .buaLogoImg filter override entirely */
+
+
+
+/* Spacer */
+.spacer {
+  flex: 1;
+}
+
+/* Actions (Left) */
+.authArea {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.authLoadingPlaceholder {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+}
+
+.mobileAuthLoadingPlaceholder {
+  display: block;
+  min-height: 18px;
+}
+
+/* Theme Toggle Switch (Exact Sliding Match) */
+.themeToggleSwitch {
+  display: flex;
+  align-items: center;
+  width: 58px;
+  height: 30px;
+  background: #38bdf8;
+  border-radius: 30px;
+  padding: 0 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.4s ease;
+  flex-shrink: 0;
+}
+
+.themeToggleSwitch.isDark {
+  /* Colorful background for dark mode (Night/Moon) */
+  background: #1e293b;
+}
+
+.isLight .themeThumb {
+  transform: translateX(-28px);
+}
+
+.isDark .themeThumb {
+  transform: translateX(0);
+}
+
+[data-theme='dark'] .themeToggleSwitch {
+  /* Solid, sleek dark slate for dark mode */
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.themeThumb {
+  width: 22px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumbIcon {
+  color: #0f172a;
+  /* Always dark so it's visible on the white thumb */
+}
+
+/* Search Icon */
+.searchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 8px;
+  transition: color var(--t-fast);
+}
+
+.searchBtn:hover {
+  color: var(--primary);
+}
+
+/* Auth Buttons */
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logoutBtn {
+  background: var(--bg-section);
+  color: var(--text-dark);
+  box-shadow: none;
+  border: 1px solid var(--border);
+}
+
+.menuToggle {
+  display: none;
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+.progressTrackWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  overflow: hidden;
+  /* Clips the track when it goes up */
+  z-index: 10;
+  opacity: 0;
+  /* Hidden by default at the top to prevent ANY thin lines */
+  transition: opacity 0.2s ease-in;
+}
+
+.navbarScrolled .progressTrackWrapper {
+  opacity: 1 !important;
+  /* Forces the progress bar to show up when scrolled */
+}
+
+/* Progress Bar Track */
+.progressTrack {
+  width: 100%;
+  height: 100%;
+  background: #bae6fd;
+  /* Keep the track in place; the wrapper controls visibility. */
+  transform: translateY(0);
+}
+
+[data-theme='dark'] .progressTrack {
+  background: rgba(56, 189, 248, 0.35); /* Brighter cyan in dark mode */
+}
+
+.progressVisible {
+  transform: translateY(0);
+}
+
+.progressBar {
+  height: 100%;
+  width: 100%;
+  background: #0369a1;
+  box-shadow: none;
+  transform-origin: left;
+}
+
+/* Profile Dropdown Styles */
+.profileContainer {
+  position: relative;
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.profileBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: all var(--t-fast);
+}
+
+
+
+[data-theme='dark'] .profileBtn {
+  background: transparent;
+}
+
+
+
+.profileDropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 0;
+  left: auto;
+  width: 192px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: none;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+  animation: dropdownFade 0.2s ease;
+}
+
+.notifDropdown {
+  min-width: 320px;
+}
+
+.markAllRead {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.markAllRead:hover {
+  color: var(--primary-dark);
+}
+
+:global([data-theme='dark']) .markAllRead:hover {
+  color: #ffffff;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownHeader {
+  display: none;
+  /* Replaced by dropdownItem for greeting */
+}
+
+.dropdownDividerWrapper {
+  width: 100%;
+  padding: 0 16px;
+  /* px-4 */
+}
+
+.dropdownDivider {
+  height: 4px;
+  background: var(--bg-section);
+  border-radius: var(--radius-md);
+  margin: 0;
+}
+
+/* Dark mode: dropdown background */
+[data-theme='dark'] .profileDropdown {
+  background: #111827;
+  border-color: #1e2d40;
+}
+
+/* Dark mode: visible divider */
+[data-theme='dark'] .dropdownDivider {
+  background: #1e2d40;
+}
+
+.dropdownItem {
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 300; /* Thin font */
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: right;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.dropdownItem:hover {
+  background: rgba(14, 165, 233, 0.08); /* Light cyan tint — same in both modes */
+  color: var(--text-dark);
+}
+
+/* Dark mode hover */
+[data-theme='dark'] .dropdownItem:hover {
+  background: rgba(14, 165, 233, 0.12);
+  color: #e6edf3;
+}
+
+.dropdownItem.notificationItem {
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-section);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdownItem.notificationItem:hover {
+  background: color-mix(in srgb, var(--secondary) 12%, var(--bg-section));
+}
+
+.dropdownItem.unreadNotification {
+  background: color-mix(in srgb, var(--secondary) 8%, var(--bg-section));
+}
+
+[data-theme='dark'] .dropdownItem.notificationItem {
+  background: #26374d;
+  border-color: #3a4a60;
+}
+
+[data-theme='dark'] .dropdownItem.notificationItem:hover {
+  background: #164e63;
+}
+
+[data-theme='dark'] .dropdownItem.unreadNotification {
+  background: #123e5b;
+}
+
+.dropdownIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary); /* Site cyan */
+}
+
+.dropdownLogout {
+  color: var(--text-dark); /* Normal color like other items */
+}
+
+.dropdownLogout .dropdownIconWrapper {
+  color: var(--text-muted);
+}
+
+.dropdownLogout:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444; /* Red only on hover */
+}
+
+.dropdownLogout:hover .dropdownIconWrapper {
+  color: #ef4444;
+}
+
+/* User Menu (Old style removed, replaced by dropdown) */
+
+[data-theme='dark'] .progressBar {
+  background: var(--secondary);
+}
+
+/* Ensure mobile menu is completely hidden on desktop */
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navInner {
+    padding: 0 16px;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  /* Center the logo relative to navInner */
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  /* Keep Theme Toggle on the left, Notifs on the right in normal flex flow */
+  .leftSide {
+    position: static;
+    order: 3;
+    /* Pushes it to the far left in RTL */
+  }
+
+  .authArea {
+    position: static;
+    order: 1;
+    /* Keeps it on the far right in RTL */
+  }
+
+  /* Only hide auth buttons inside the main navbar, not the mobile menu */
+  .authArea .customAuthWrapper {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+
+  /* Theme Toggle is kept in normal flex flow */
+  .themeToggleSwitch {
+    display: flex !important;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    padding: 20px 0;
+    z-index: 50;
+    animation: slideDown 0.2s ease-out forwards;
+  }
+
+  .notifDropdown {
+    position: fixed;
+    top: 70px;
+    /* Below Navbar */
+    left: 16px;
+    right: 16px;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .mobileMenuInner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mobileAuthButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobileRegisterBtn {
+    background: var(--secondary);
+    /* Cyan */
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: none;
+  }
+
+  .mobileLoginBtn {
+    background: var(--grad-btn);
+    /* Navy Gradient */
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: none;
+  }
+
+  .mobileUserMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .mobileUserName {
+    font-weight: bold;
+    color: var(--text-dark);
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.customAuthWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* "انشئ حسابك" → Solid cyan, soft corners */
+.customRegisterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--secondary);
+  color: #ffffff;
+  border: 2px solid var(--secondary);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 400; /* Thin light font */
+  font-family: var(--font);
+  letter-spacing: 0.3px;
+  transition: background 0.25s ease, color 0.25s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.customRegisterBtn:hover {
+  background: transparent;
+  color: var(--secondary);
+}
+
+.customRegisterBtn svg {
+  flex-shrink: 0;
+}
+
+/* "سجل دخولك" → White text, yellow icon & accent word, yellow border on hover */
+.customLoginBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  color: var(--text-dark);
+  border: 1px solid transparent;
+  padding: 7px 18px;
+  border-radius: 6px; /* Slightly smaller radius */
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font);
+  letter-spacing: 0.3px;
+  transition: border-color 0.5s ease, background 0.5s ease; /* Slower animation */
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.customLoginBtn:hover {
+  border-color: #facc15; /* yellow-400 */
+  background: rgba(250, 204, 21, 0.05);
+}
+
+/* Icon: yellow-500 */
+.loginBtnIcon {
+  flex-shrink: 0;
+  color: #eab308; /* yellow-500 */
+}
+
+/* "دخولك" accent word: yellow-600 in light, yellow-400 in dark */
+.loginBtnAccent {
+  color: #ca8a04; /* yellow-600 */
+}
+
+/* Dark mode */
+[data-theme='dark'] .customLoginBtn {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme='dark'] .loginBtnIcon {
+  color: #facc15; /* yellow-400 in dark */
+}
+
+[data-theme='dark'] .loginBtnAccent {
+  color: #facc15; /* yellow-400 in dark */
+}
+
+[data-theme='dark'] .customLoginBtn:hover {
+  border-color: #facc15;
+  background: rgba(250, 204, 21, 0.06);
+}

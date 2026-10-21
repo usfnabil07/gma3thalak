@@ -1,0 +1,334 @@
+.authPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  position: relative;
+  overflow: hidden;
+  background: var(--grad-hero);
+}
+
+.authGlow1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,63,94,0.12) 0%, transparent 70%);
+  top: -120px;
+  right: -80px;
+  pointer-events: none;
+}
+
+.authGlow2 {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8,145,178,0.1) 0%, transparent 70%);
+  bottom: -80px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.authCard {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+  animation: fade-up 0.45s ease forwards;
+}
+
+.authCardLg {
+  max-width: 620px;
+}
+
+.authHeader {
+  text-align: center;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.authLogo {
+  width: 68px;
+  height: 68px;
+  background: var(--grad-btn);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(244,63,94,0.35);
+  animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+.authTitle {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--text-dark);
+}
+
+.authSub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputWrapper { position: relative; }
+
+.inputIcon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint);
+  pointer-events: none;
+  transition: color var(--t-fast);
+}
+
+.inputWrapper:focus-within .inputIcon {
+  color: var(--primary);
+}
+
+.inputWithIcon {
+  padding-right: 44px !important;
+}
+
+.eyeBtn {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--t-fast);
+}
+
+.eyeBtn:hover {
+  color: var(--text-dark);
+}
+
+.authFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.authLink {
+  color: var(--primary);
+  font-weight: 700;
+  transition: color var(--t-fast);
+  text-decoration: none;
+}
+
+.authLink:hover {
+  color: var(--primary-dark);
+}
+
+@media (max-width: 480px) {
+  .authCard { padding: 28px 20px; }
+}
+
+/* =========================================
+   SPLIT LAYOUT (REGISTER PAGE)
+   ========================================= */
+
+.splitPage {
+  padding-top: 80px; /* Push content below the fixed navbar */
+  min-height: 100vh; /* Ensure it takes full viewport to push footer down */
+  display: flex;
+  background: var(--bg-white);
+  animation: fade-in 0.8s ease forwards;
+}
+
+.splitContainer {
+  width: 100%;
+  display: flex;
+  background: var(--bg-white);
+  /* Removed border radius, shadow, and borders */
+}
+
+.formSide {
+  flex: 1;
+  padding: 60px 80px 120px 80px; /* Added extra bottom padding to force select dropdowns to open downwards */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto; /* Allow scrolling if screen is small */
+}
+
+.imageSide {
+  flex: 1;
+  background: var(--primary-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .imageSide {
+  background: var(--bg-section); /* Use dark section background in dark mode instead of light blue */
+}
+
+.splitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make image fill its half entirely */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Form Header styling */
+.splitHeader {
+  margin-bottom: 40px;
+}
+
+.splitTitle {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-dark); /* Changed from primary-dark to text-dark so it becomes white in dark mode */
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.splitSub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.splitLink {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.splitLink a {
+  color: var(--secondary); /* Cyan link */
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Material Style Inputs */
+.materialInputGroup {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--border);
+  transition: border-color 0.3s ease;
+  position: relative;
+}
+
+.materialInputGroup:focus-within {
+  border-bottom-color: var(--secondary); /* Cyan focus like screenshot */
+}
+
+.materialInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--text-dark);
+  font-size: 1rem;
+  padding: 12px 10px;
+  width: 100%;
+  font-family: inherit;
+}
+
+.materialInput::placeholder {
+  color: var(--text-faint);
+}
+
+.materialIcon {
+  color: var(--secondary); /* Cyan icons */
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.materialInputGroup:focus-within .materialIcon {
+  color: var(--primary);
+}
+
+/* Remove default select styling for material look */
+.materialSelect {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--text-dark);
+  font-size: 1rem;
+  padding: 12px 10px;
+  width: 100%;
+  font-family: inherit;
+  appearance: none; /* Hide default arrow */
+  cursor: pointer;
+}
+
+/* Fix option visibility in dark mode */
+.materialSelect option {
+  background-color: var(--bg-card);
+  color: var(--text-dark);
+}
+
+.materialEyeBtn {
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+@media (max-width: 992px) {
+  .splitContainer {
+    flex-direction: column-reverse;
+  }
+  .imageSide {
+    min-height: 280px;
+    flex: none;
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+  .splitImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .formSide {
+    padding: 24px 20px 40px;
+    justify-content: flex-start;
+  }
+}
+

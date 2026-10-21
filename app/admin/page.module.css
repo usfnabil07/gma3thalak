@@ -1,0 +1,155 @@
+.adminPage {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.adminLayout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: calc(100vh - 68px);
+}
+
+.adminSidebar {
+  background: var(--color-bg-2);
+  border-left: 1px solid var(--color-border);
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebarLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 8px;
+}
+
+.tabBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: 100%;
+  text-align: right;
+}
+
+.tabBtn:hover {
+  background: rgba(255,255,255,0.04);
+  color: var(--color-text);
+}
+
+.tabActive {
+  background: rgba(91, 79, 220, 0.12) !important;
+  color: var(--color-primary-light) !important;
+  font-weight: 600;
+}
+
+.adminContent {
+  padding: 40px 36px;
+  overflow-y: auto;
+}
+
+.contentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.contentTitle {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-text);
+}
+
+/* Stat Cards */
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.statIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--sc) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sc) 25%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sc);
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-text);
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Faculty Card */
+.facultyCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.facultyInfo { flex: 1; }
+
+.facultyName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Section label */
+.sectionLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+/* Mat Row */
+.matRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.matTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .adminLayout { grid-template-columns: 1fr; }
+  .adminSidebar { flex-direction: row; flex-wrap: wrap; }
+  .adminContent { padding: 24px 16px; }
+}
+

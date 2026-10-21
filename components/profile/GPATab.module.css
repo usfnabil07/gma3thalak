@@ -1,0 +1,1073 @@
+.gpaHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.85fr);
+  gap: 16px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  margin-bottom: 32px;
+}
+
+.gpaLead {
+  position: relative;
+  min-height: 292px;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 18px;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 6px;
+  background: linear-gradient(125deg, var(--secondary) 0%, #0284c7 48%, var(--primary) 100%);
+  box-shadow: var(--shadow-md);
+  isolation: isolate;
+}
+
+.gpaLead::before,
+.gpaLead::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.gpaLead::before {
+  width: 260px;
+  height: 260px;
+  left: -90px;
+  bottom: -150px;
+}
+
+.gpaLead::after {
+  width: 170px;
+  height: 170px;
+  right: -75px;
+  top: -90px;
+}
+
+.gpaLeadCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  color: #fff;
+}
+
+.gpaLeadCopy .overline {
+  color: var(--secondary-light);
+}
+
+.gpaLeadCopy h3 {
+  color: #fff;
+  margin: 0;
+  font-size: clamp(1.45rem, 2vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.gpaLeadCopy p {
+  max-width: 320px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.gpaScore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gpaScale {
+  position: absolute;
+  right: 30px;
+  bottom: 23px;
+  left: 30px;
+  direction: ltr;
+}
+
+.scaleTrack {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scaleTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #fff;
+  transition: width 0.5s ease-out;
+}
+
+.scaleLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  direction: ltr;
+  font-size: 0.68rem;
+}
+
+.gpaStats {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+}
+
+.gpaCircleContainer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}
+
+.circularChart {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 250px;
+}
+
+.circleBg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.34);
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dasharray 0.5s ease-out;
+}
+
+.gpaInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gpaValue {
+  color: #fff;
+  font-size: 2.35rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.gpaLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.overline {
+  color: var(--primary-light);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.gpaStatus {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.excellent { background: rgba(16, 185, 129, 0.14); color: #059669; }
+.veryGood { background: rgba(14, 165, 233, 0.14); color: #0284c7; }
+.good { background: rgba(245, 158, 11, 0.16); color: #d97706; }
+.pass { background: rgba(139, 92, 246, 0.14); color: #7c3aed; }
+.empty { background: color-mix(in srgb, var(--text) 8%, transparent); color: var(--text-muted); }
+
+.statBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  padding: 15px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.statBoxPrimary {
+  min-height: 66px;
+}
+
+.statBoxPrimary .statTexts {
+  flex: 1;
+}
+
+.statIcon {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--primary) 11%, transparent);
+  color: var(--primary-light);
+}
+
+.statTexts {
+  display: flex;
+  flex-direction: column;
+}
+
+.statVal {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.statName {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.statHelper {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.statUnit {
+  color: var(--primary-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.summerBox {
+  justify-content: space-between;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  direction: ltr;
+}
+
+.counterButton {
+  width: 29px;
+  height: 29px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary) 9%, transparent);
+  color: var(--primary-light);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.counterButton:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.counterValue {
+  min-width: 22px;
+  color: var(--primary-light);
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.semestersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.yearDivider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  color: var(--primary-light);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.yearDivider i {
+  height: 1px;
+  flex: 1;
+  background: var(--border);
+}
+
+.semesterCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.semesterCard:hover {
+  border-color: color-mix(in srgb, var(--text) 10%, transparent);
+}
+
+.semesterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  cursor: pointer;
+}
+
+.semesterTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.semesterNumber {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.semesterNumber span {
+  color: var(--primary-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.semesterNumber strong {
+  color: var(--text-dark);
+  font-size: 1.05rem;
+}
+
+.semesterTitleInput {
+  background: transparent;
+  border: 1px dashed transparent;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: 150px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.semesterTitleInput:focus, .semesterTitleInput:hover {
+  border-color: color-mix(in srgb, var(--text) 20%, transparent);
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  outline: none;
+}
+
+.semesterGpaBadge {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.semesterActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+}
+
+.iconBtnDanger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.iconBtnDanger:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.semesterBody {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.coursesTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.coursesTable th {
+  text-align: right;
+  padding: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.coursesTable td {
+  padding: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+.tableInput, .tableSelect {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.tableInput:focus, .tableSelect:focus, .tableInput:hover, .tableSelect:hover {
+  border-color: var(--secondary);
+  background: var(--bg-card);
+  outline: none;
+}
+
+.tableInput:focus, .tableSelect:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary) 16%, transparent);
+}
+
+.iconBtnDangerGhost {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.iconBtnDangerGhost:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.emptyCourses {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+.addCourseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border: 1px dashed color-mix(in srgb, var(--secondary) 55%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--secondary) 5%, var(--bg-card));
+  color: var(--secondary);
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.addCourseBtn:hover {
+  border-color: var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 11%, var(--bg-card));
+}
+
+.addSemesterBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.addSemesterBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.facultySelector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+.facultySelector label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.facultySelect {
+  background: transparent;
+  color: var(--text);
+  border: none;
+  font-weight: 800;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.facultySelect option {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+.infoBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: color-mix(in srgb, var(--secondary) 8%, var(--bg-card));
+  color: var(--secondary);
+  padding: 11px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid color-mix(in srgb, var(--secondary) 22%, transparent);
+}
+
+.forecastCard {
+  margin-bottom: 28px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--secondary);
+  border-radius: 6px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.forecastHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  background: color-mix(in srgb, var(--secondary) 5%, var(--bg-card));
+}
+
+.forecastIcon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--secondary) 12%, transparent);
+  color: var(--secondary);
+}
+
+.forecastHeader h3 {
+  margin-top: 2px;
+  color: var(--text-dark);
+  font-size: 1.15rem;
+}
+
+.forecastHeader p {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.forecastBadge {
+  margin-right: auto;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 22%, transparent);
+  border-radius: var(--radius-full);
+  color: var(--secondary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.forecastBody {
+  padding: 18px 22px 0;
+}
+
+.forecastInputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.forecastInputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.forecastInputs label > span {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.forecastInputs label small {
+  color: var(--text-faint);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+.forecastInputs input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-dark);
+  font: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.forecastInputs input:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+}
+
+.forecastAutoValue {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 24%, var(--border));
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--secondary) 7%, var(--bg));
+  color: var(--secondary);
+}
+
+.forecastAutoValue strong {
+  font-size: 1.15rem;
+}
+
+.forecastAutoValue small {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.forecastResults {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.forecastResults > div {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 13px 14px;
+  border-right: 3px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+}
+
+.forecastResults span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.forecastResults strong {
+  color: var(--text-dark);
+  font-size: 1.45rem;
+}
+
+.forecastResults small {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.forecastResults .forecastHighlight {
+  border-right-color: var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 8%, var(--bg));
+}
+
+.forecastHighlight strong {
+  color: var(--secondary);
+}
+
+.forecastNote {
+  margin: 12px 22px 18px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.pointsDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.pointsNum {
+  font-weight: 900;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.pointsLetter {
+  font-weight: 800;
+  color: #fff;
+  background: var(--primary);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.gradeSummary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gradeLabel {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.82rem;
+}
+
+.gradeValue {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.gradingNote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+}
+
+.gradingIcon {
+  display: inline-flex;
+  color: var(--secondary);
+}
+
+.gradingText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.gradingText small {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.gradingText strong {
+  color: var(--text-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Keep the forecast panel in the profile's quiet card language. */
+.forecastCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.forecastHeader {
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+}
+
+.forecastIcon {
+  border-radius: var(--radius-md);
+}
+
+.forecastBody {
+  padding: 20px 22px 0;
+}
+
+.forecastInputs input,
+.forecastAutoValue {
+  min-height: 46px;
+  border-radius: var(--radius-sm);
+}
+
+.forecastResults > div {
+  min-height: 70px;
+  align-items: center;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--primary) 3%, var(--bg-card));
+}
+
+.forecastResults .forecastHighlight {
+  border-color: color-mix(in srgb, var(--secondary) 30%, var(--border));
+  background: color-mix(in srgb, var(--secondary) 7%, var(--bg-card));
+}
+
+.forecastNote {
+  margin: 16px 22px 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.74rem;
+  line-height: 1.7;
+}
+
+.excellent,
+.veryGood,
+.good,
+.pass,
+.empty {
+  color: var(--secondary-light);
+  background: color-mix(in srgb, var(--secondary) 12%, transparent);
+}
+
+@media (max-width: 768px) {
+  .forecastHeader {
+    padding: 16px;
+  }
+
+  .forecastBody {
+    padding: 16px 16px 0;
+  }
+
+  .forecastNote {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+}
+
+/* Keep GPA accents readable when the page uses the dark palette. */
+[data-theme='dark'] .statIcon,
+[data-theme='dark'] .statUnit,
+[data-theme='dark'] .counterButton,
+[data-theme='dark'] .counterValue,
+[data-theme='dark'] .yearDivider,
+[data-theme='dark'] .semesterNumber span {
+  color: var(--secondary-light);
+}
+
+[data-theme='dark'] .counterButton {
+  border-color: color-mix(in srgb, var(--secondary-light) 45%, var(--border));
+  background: color-mix(in srgb, var(--secondary-light) 10%, var(--bg-card));
+}
+
+[data-theme='dark'] .counterButton:hover {
+  border-color: var(--secondary-light);
+  background: var(--secondary);
+  color: #fff;
+}
+
+[data-theme='dark'] .addCourseBtn {
+  border-color: color-mix(in srgb, var(--secondary-light) 55%, var(--border));
+  color: var(--secondary-light);
+}
+
+[data-theme='dark'] .addCourseBtn:hover {
+  background: color-mix(in srgb, var(--secondary-light) 12%, var(--bg-card));
+}
+
+@media (max-width: 768px) {
+  .gpaHero {
+    flex-direction: column;
+    display: flex;
+    gap: 16px;
+  }
+
+  .gpaLead {
+    min-height: 340px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 24px;
+  }
+
+  .gpaLeadCopy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .gpaLeadCopy p {
+    max-width: 310px;
+  }
+
+  .gpaScale {
+    right: 24px;
+    bottom: 20px;
+    left: 24px;
+  }
+
+  .forecastCard {
+    padding: 0;
+  }
+
+  .forecastHeader,
+  .forecastBody {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .forecastHeader {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .forecastBadge {
+    margin-right: 54px;
+  }
+
+  .forecastInputs,
+  .forecastResults {
+    grid-template-columns: 1fr;
+  }
+
+  .forecastResults > div {
+    justify-content: center;
+  }
+
+  .forecastNote {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+  
+  .semesterHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .semesterTitleGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .semesterTitleInput {
+    width: 100%;
+  }
+  
+  .semesterGpaBadge {
+    width: fit-content;
+  }
+
+  .summerBox {
+    align-items: center;
+  }
+
+  .semesterActions {
+    align-self: flex-end;
+  }
+
+  .coursesTable {
+    display: block;
+    width: 100%;
+  }
+  
+  .coursesTable thead {
+    display: none;
+  }
+  
+  .coursesTable tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .coursesTable tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    background: color-mix(in srgb, var(--bg) 50%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .coursesTable td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed color-mix(in srgb, var(--text) 10%, transparent);
+    padding: 8px 0;
+  }
+
+  .coursesTable td:last-child {
+    border-bottom: none;
+  }
+
+  /* Add data-label before the content */
+  .coursesTable td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  
+  /* Ensure inputs take up the remaining space but not full width */
+  .coursesTable td > div,
+  .coursesTable td > input {
+    width: 60%;
+    text-align: left;
+  }
+}

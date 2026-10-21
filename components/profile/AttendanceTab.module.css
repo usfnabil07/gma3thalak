@@ -1,0 +1,425 @@
+.overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--primary);
+  border-radius: 6px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.overviewIntro {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.overviewIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--primary) 11%, transparent);
+  color: var(--secondary);
+}
+
+.overviewIntro h3 {
+  margin-top: 3px;
+  color: var(--text-dark);
+  font-size: 1.16rem;
+  font-weight: 800;
+}
+
+.overviewIntro p {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: .78rem;
+}
+
+.overviewMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.metric {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-right: 3px solid var(--secondary);
+  border-radius: 6px;
+  background: var(--bg);
+}
+
+.metricIcon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--secondary) 12%, var(--bg-card));
+  color: var(--secondary);
+}
+
+.metricCopy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.metricCopy strong {
+  color: var(--text-dark);
+  font-size: 1.15rem;
+  font-weight: 850;
+}
+
+.metricCopy span {
+  color: var(--text-muted);
+  font-size: .67rem;
+  white-space: nowrap;
+}
+
+.metricWarning {
+  border-right-color: #d69a35;
+}
+
+.metricWarning .metricIcon {
+  background: color-mix(in srgb, #d69a35 12%, var(--bg-card));
+  color: #b7791f;
+}
+
+.metricDanger {
+  border-right-color: #c94c46;
+}
+
+.metricDanger .metricIcon {
+  background: color-mix(in srgb, #c94c46 12%, var(--bg-card));
+  color: #c94c46;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  gap: 16px;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 7px;
+  padding: 38px 20px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg-card);
+  text-align: center;
+}
+
+.emptyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary) 11%, transparent);
+  color: var(--secondary);
+}
+
+.emptyState h3 {
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.emptyState p {
+  color: var(--text-muted);
+  font-size: .76rem;
+}
+
+.card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--primary) 42%, var(--border));
+  box-shadow: var(--shadow-card);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  min-height: 78px;
+  padding: 15px 17px;
+  border-bottom: 1px solid var(--border);
+}
+
+.courseHeading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.courseBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--primary) 11%, transparent);
+  color: var(--secondary);
+}
+
+.courseHeading > div:last-child {
+  min-width: 0;
+}
+
+.courseName {
+  overflow: hidden;
+  color: var(--text-dark);
+  font-size: .95rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+}
+
+.courseMeta {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: .69rem;
+}
+
+.progressSection {
+  padding: 16px 17px 14px;
+}
+
+.progressInfo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+.progressText {
+  color: var(--text-muted);
+  font-size: .74rem;
+  font-weight: 650;
+}
+
+.progressRatio {
+  color: var(--text-dark);
+  font-size: 1rem;
+  font-weight: 850;
+  direction: ltr;
+}
+
+.progressRatio span {
+  color: var(--text-muted);
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.progressBar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--text) 9%, var(--bg-card));
+  direction: ltr;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--secondary);
+  transition: width .3s ease, background-color .2s ease;
+}
+
+.toneSafe {
+  color: var(--secondary);
+}
+
+.toneWarning {
+  color: #b7791f;
+}
+
+.toneDanger {
+  color: #c1272d;
+}
+
+.progressFill.toneWarning {
+  background: #d69a35;
+}
+
+.progressFill.toneDanger {
+  background: #c1272d;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 27px;
+  margin-top: 10px;
+  font-size: .71rem;
+  font-weight: 750;
+}
+
+.statusBadge.toneSafe {
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--secondary) 9%, var(--bg-card));
+}
+
+.statusBadge.toneWarning {
+  border-radius: 6px;
+  background: color-mix(in srgb, #d69a35 12%, var(--bg-card));
+}
+
+.statusBadge.toneDanger {
+  border-radius: 6px;
+  background: color-mix(in srgb, #c1272d 10%, var(--bg-card));
+}
+
+.limitControl {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  font-size: .66rem;
+  font-weight: 550;
+}
+
+.limitControl input {
+  width: 48px;
+  height: 27px;
+  padding: 2px 4px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg-card);
+  color: var(--text-dark);
+  font: inherit;
+  font-size: .72rem;
+  text-align: center;
+}
+
+.limitControl input:focus {
+  border-color: var(--secondary);
+  outline: 2px solid color-mix(in srgb, var(--secondary) 18%, transparent);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 10px 17px;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 55%, var(--bg-card));
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 6px 18px;
+  border-radius: 12px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.undoAbsenceBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: .7rem;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+.undoAbsenceBtn:hover {
+  color: var(--secondary);
+}
+
+[data-theme='dark'] .toneWarning {
+  color: #f5c66e;
+}
+
+[data-theme='dark'] .toneSafe {
+  color: var(--secondary-light);
+}
+
+[data-theme='dark'] .metricWarning .metricIcon,
+[data-theme='dark'] .statusBadge.toneWarning {
+  background: color-mix(in srgb, #f5c66e 14%, var(--bg-card));
+  color: #f5c66e;
+}
+
+[data-theme='dark'] .toneDanger {
+  color: #ff8b84;
+}
+
+[data-theme='dark'] .progressFill.toneDanger {
+  background: #ff726b;
+}
+
+[data-theme='dark'] .statusBadge.toneDanger,
+[data-theme='dark'] .metricDanger .metricIcon {
+  background: color-mix(in srgb, #ff8b84 14%, var(--bg-card));
+  color: #ff8b84;
+}
+
+@media (max-width: 760px) {
+  .overview {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 17px;
+  }
+
+  .overviewMetrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metric {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    padding-inline: 8px;
+  }
+}
