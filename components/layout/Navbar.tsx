@@ -44,12 +44,13 @@ export default function Navbar() {
         if (!active) return;
 
         const welcomeCopy = {
-          title: 'اهلا بيك يا صديقي',
-          message: 'نتمنالك رحلة دراسية ممتعة. جمعنالك هنا كل اللي هتحتاجه في دراستك.',
+          title: 'أهلاً بيك في جمعتهالك 💙',
+          message: 'نورتنا يا صاحبي! ❤️ خدلك لفة في المنصة، واكتشف كل اللي جمعناهولك عشان نسهّل عليك مشوار الدراسة. وإن شاء الله نكون دايمًا عند حسن ظنك!',
         };
         const oldWelcome = data.find((notification) =>
           notification.title.trim() === 'أهلاً بك في منصة جمعتهالك!' ||
           notification.title.trim() === 'أهلا بيك يا صديقي !' ||
+          notification.title.trim() === 'اهلا بيك يا صديقي' ||
           notification.message.includes('نورت المنصة يا بطل!') ||
           notification.message.startsWith('هنا هتلاقي الماتريالز الخاصة بيك') ||
           (notification.title.trim() === welcomeCopy.title && notification.message !== welcomeCopy.message)
