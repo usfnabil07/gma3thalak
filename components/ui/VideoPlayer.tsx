@@ -191,7 +191,7 @@ export default function VideoPlayer({ url, id, userId, isFetching, onDownload }:
       ) : ytId ? (
         <YouTubeFrame ytId={ytId} url={url} />
       ) : local ? (
-        <LocalPlayer url={url} id={id} onDownload={onDownload} />
+        <LocalPlayer url={url} id={id} userId={userId} onDownload={onDownload} />
       ) : (
         <YouTubeFrame ytId="" url={url} />
       )}
@@ -219,7 +219,7 @@ function YouTubeFrame({ ytId, url }: { ytId: string; url?: string }) {
 }
 
 /* ─── Local HTML5 Player ─── */
-function LocalPlayer({ url, id, onDownload }: { url: string; id?: string; onDownload?: () => void }) {
+function LocalPlayer({ url, id, userId, onDownload }: { url: string; id?: string; userId?: string; onDownload?: () => void }) {
   const rootRef  = useRef<HTMLDivElement>(null);
   const vidRef   = useRef<HTMLVideoElement>(null);
   const hideRef  = useRef<ReturnType<typeof setTimeout> | null>(null);
