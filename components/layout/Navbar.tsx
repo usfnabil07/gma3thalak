@@ -43,16 +43,17 @@ export default function Navbar() {
         const data = await getUserNotifications(profile.id);
         if (!active) return;
 
+        const welcomeCopy = {
+          title: 'اهلا بيك يا صديقي',
+          message: 'نتمنالك رحلة أكاديمية ممتعة، وجمعنالك هنا كل اللي هيساعدك في دراستك. وإحنا دايمًا هنا علشانك.',
+        };
         const oldWelcome = data.find((notification) =>
           notification.title.trim() === 'أهلاً بك في منصة جمعتهالك!' ||
           notification.title.trim() === 'أهلا بيك يا صديقي !' ||
           notification.message.includes('نورت المنصة يا بطل!') ||
-          notification.message.startsWith('هنا هتلاقي الماتريالز الخاصة بيك')
+          notification.message.startsWith('هنا هتلاقي الماتريالز الخاصة بيك') ||
+          (notification.title.trim() === welcomeCopy.title && notification.message !== welcomeCopy.message)
         );
-        const welcomeCopy = {
-          title: 'اهلا بيك يا صديقي',
-          message: 'نتمنالك رحلة اكاديمية ممتعة واحنا هنا دايما علشانك وعشان نجمعهالك .',
-        };
 
         if (oldWelcome) {
           setNotifications(data.map((notification) =>
