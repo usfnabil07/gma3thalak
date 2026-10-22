@@ -45,7 +45,7 @@ export default function Navbar() {
 
         const welcomeCopy = {
           title: 'أهلاً بيك في جمعتهالك 💙',
-          message: 'عارفين إنك بتضيع وقت كتير وإنت بتدور على محاضرات وملخصات وامتحانات سابقة، وإن تنظيم جدولك ومتابعة درجاتك مش دايمًا سهل. عشان كده جمعنالك كل ده في مكان واحد. جمعتهالك 💙',
+          message: 'عشان عارفين انك بتضيع وقت كتير وانت بتدور علي ال محتاجه في دراستك من محاضرات وملخصات وامتحانات سابقه وكمان عارفين انك بتواجه صعوبة في تنظيم جدولك ودرجاتك\nفقررنا نجمعلك كل دا في مكان واحد\nوعشان كدا جمعتهالك',
         };
         const oldWelcome = data.find((notification) =>
           notification.title.trim() === 'أهلاً بك في منصة جمعتهالك!' ||
@@ -352,7 +352,7 @@ export default function Navbar() {
                             >
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '100%' }}>
                                 <h5 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-dark)' }}>{notif.title}</h5>
-                                <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-body)', lineHeight: '1.5' }}>
+                                <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-body)', lineHeight: '1.5', whiteSpace: 'pre-line' }}>
                                   {notif.message}
                                 </p>
                                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
