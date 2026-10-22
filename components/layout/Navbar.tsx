@@ -45,7 +45,7 @@ export default function Navbar() {
 
         const welcomeCopy = {
           title: 'اهلا بيك يا صديقي',
-          message: 'نتمنالك رحلة أكاديمية ممتعة، وهتلاقي كل اللي تحتاجه في دراستك متجمعهالك هنا.',
+          message: 'نتمنالك رحلة دراسية ممتعة. جمعنالك هنا كل اللي هتحتاجه في دراستك.',
         };
         const oldWelcome = data.find((notification) =>
           notification.title.trim() === 'أهلاً بك في منصة جمعتهالك!' ||
