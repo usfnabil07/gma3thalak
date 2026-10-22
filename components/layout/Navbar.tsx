@@ -51,7 +51,7 @@ export default function Navbar() {
         );
         const welcomeCopy = {
           title: 'اهلا بيك يا صديقي',
-          message: 'نتمنالك رحلة اكاديمية ممتعة واحنا هنا دايما عشان نجمعهالك .',
+          message: 'نتمنالك رحلة اكاديمية ممتعة واحنا هنا دايما علشانك وعشان نجمعهالك .',
         };
 
         if (oldWelcome) {
@@ -330,11 +330,11 @@ export default function Navbar() {
                         <button
                           type="button"
                           onClick={handleMarkAsRead}
-                          className={`${styles.markAllRead} ${markAllReadDone ? styles.markAllReadDone : ''} ${isMarkingAllRead ? styles.markAllReadPending : ''}`}
+                          className={`${styles.markAllRead} ${markAllReadDone ? styles.markAllReadDone : ''}`}
                           disabled={isMarkingAllRead || !notifications.some(notification => !notification.is_read)}
                           aria-live="polite"
                         >
-                          {markAllReadDone ? 'تم تحديد الكل كمقروء' : 'تحديد الكل كمقروء'}
+                          تحديد الكل كمقروء
                         </button>
                       </div>
 
