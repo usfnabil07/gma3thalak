@@ -31,10 +31,13 @@ export default function Navbar() {
   const [notifOpen, setNotifOpen] = useState(false);
   const notifRef = useRef<HTMLDivElement>(null);
   const [notifications, setNotifications] = useState<UserNotification[]>([]);
+  const [markAllReadDone, setMarkAllReadDone] = useState(false);
+  const [isMarkingAllRead, setIsMarkingAllRead] = useState(false);
 
   useEffect(() => {
     let active = true;
     setNotifications([]);
+    setMarkAllReadDone(false);
     const fetchNotifications = async () => {
       if (profile?.id) {
         const data = await getUserNotifications(profile.id);
@@ -42,11 +45,13 @@ export default function Navbar() {
 
         const oldWelcome = data.find((notification) =>
           notification.title.trim() === 'أهلاً بك في منصة جمعتهالك!' ||
-          notification.message.includes('نورت المنصة يا بطل!')
+          notification.title.trim() === 'أهلا بيك يا صديقي !' ||
+          notification.message.includes('نورت المنصة يا بطل!') ||
+          notification.message.startsWith('هنا هتلاقي الماتريالز الخاصة بيك')
         );
         const welcomeCopy = {
-          title: 'أهلا بيك يا صديقي !',
-          message: 'هنا هتلاقي الماتريالز الخاصة بيك وأدوات هتساعدك في تنظيم دراستك، وكمان لو احتاجت تسأل عن أي حاجة، المساعد الذكي جمعة موجود عشانك في أي وقت.',
+          title: 'اهلا بيك يا صديقي',
+          message: 'نتمنالك رحلة اكاديمية ممتعة واحنا هنا دايما عشان نجمعهالك .',
         };
 
         if (oldWelcome) {
@@ -67,11 +72,15 @@ export default function Navbar() {
   }, [profile?.id]);
 
   const handleMarkAsRead = async () => {
-    if (!profile?.id) return;
+    if (!profile?.id || isMarkingAllRead || !notifications.some(notification => !notification.is_read)) return;
+
+    setIsMarkingAllRead(true);
     const success = await markNotificationsAsRead(profile.id);
     if (success) {
       setNotifications(prev => prev.map(n => ({ ...n, is_read: true })));
+      setMarkAllReadDone(true);
     }
+    setIsMarkingAllRead(false);
   };
 
   const handleNotificationClick = async (notification: UserNotification) => {
@@ -318,12 +327,15 @@ export default function Navbar() {
                         <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, color: 'var(--text)' }}>
                           الإشعارات
                         </h4>
-                        <span
+                        <button
+                          type="button"
                           onClick={handleMarkAsRead}
-                          className={styles.markAllRead}
+                          className={`${styles.markAllRead} ${markAllReadDone ? styles.markAllReadDone : ''} ${isMarkingAllRead ? styles.markAllReadPending : ''}`}
+                          disabled={isMarkingAllRead || !notifications.some(notification => !notification.is_read)}
+                          aria-live="polite"
                         >
-                          تحديد الكل كمقروء
-                        </span>
+                          {markAllReadDone ? 'تم تحديد الكل كمقروء' : 'تحديد الكل كمقروء'}
+                        </button>
                       </div>
 
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'right' }}>
